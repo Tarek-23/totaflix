@@ -1,0 +1,42 @@
+/* .row {
+  height: 300px;
+  overflow-x: scroll;
+} */
+
+/* .row__posters {
+  display: flex;
+  justify-content: space-around;
+  object-fit: contain;
+  max-height: inherit;
+}
+
+.row__poster {
+  max-height: inher;
+  object-fit: contain;
+  padding: 0 1.3rem;
+} */
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.row {
+  margin-left: 20px;
+}
+.row__posters {
+  display: flex;
+  overflow: scroll hidden;
+  padding: 1.2rem;
+}
+
+.row__poster {
+  margin-right: 0.3rem;
+  object-fit: contain;
+  width: 100%;
+  max-height: 100px;
+  transition: transform 250ms ease-in-out;
+}
+
+.row__poster:hover {
+  transform: scale(1.08);
+}
