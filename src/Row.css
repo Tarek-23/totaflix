@@ -26,17 +26,28 @@
 .row__posters {
   display: flex;
   overflow: scroll hidden;
-  padding: 1.2rem;
+  padding: 1.2rem 1rem;
+
+  animation: fadeIn ease 2s;
 }
 
 .row__poster {
-  margin-right: 0.3rem;
+  margin-right: 0.4rem;
   object-fit: contain;
   width: 100%;
-  max-height: 100px;
+  max-height: 175px;
   transition: transform 250ms ease-in-out;
 }
 
 .row__poster:hover {
   transform: scale(1.08);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
