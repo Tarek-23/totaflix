@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./Banner.css";
+import "react-slidedown/lib/slidedown.css";
 import YouTube from "react-youtube";
+import { SlideDown } from "react-slidedown";
+
 const movieTrailer = require("movie-trailer");
 
 function Banner({ movie }) {
@@ -59,7 +62,7 @@ function Banner({ movie }) {
 
         <p className="banner__description">{movie?.overview}</p>
       </div>
-      <div className="banner__right">
+      <SlideDown className="banner__right">
         {playState && (
           <YouTube
             videoId={trailer}
@@ -68,7 +71,7 @@ function Banner({ movie }) {
             className="banner__iframe"
           />
         )}
-      </div>
+      </SlideDown>
 
       <div className="banner__fadeBottom"></div>
     </header>
