@@ -1,6 +1,10 @@
 .banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* flex-flow: row nowrap; */
   height: 448px;
-  max-height: fit-content;
+  height: auto;
   object-fit: contain;
   animation: fadeIn ease-out 2s;
   box-shadow: inset 40vw 50px 100px 50px rgb(0 0 0 / 75%);
@@ -11,9 +15,11 @@
   margin-left: 2rem;
   color: whitesmoke; */
 
+  align-self: flex-start;
   margin-left: 30px;
   padding-top: 140px;
-  height: 190px;
+  padding-bottom: 40px;
+  min-height: 190px;
   animation: fadeIn ease 3s;
 }
 
@@ -48,9 +54,14 @@
   transition: all 0.15s ease-in;
 }
 
-.banner__button:hover {
-  background-color: rgb(66, 66, 66);
+.banner__button:hover:enabled {
+  background-color: rgb(66, 66, 66, 0.4);
   transition: all 0.3s ease-in-out;
+}
+
+.banner__button--disabled {
+  pointer-events: none;
+  color: grey;
 }
 
 .banner__description {
@@ -61,7 +72,7 @@
   max-width: 360px;
   max-height: 80px;
   overflow: hidden;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
 
   /* width: 45rem;
   line-height: 1.3rem;
@@ -70,8 +81,29 @@
   margin-bottom: 40px; */
 }
 
+.banner__right {
+  display: flex;
+  width: 70%;
+  justify-self: center;
+}
+
+.banner__trailer {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+}
+
+.banner__iframe {
+  position: absolute;
+  border-radius: 10px;
+}
+
 .banner__fadeBottom {
-  height: 26.5%;
+  /* position: absolute; */
+  align-self: flex-end;
+  height: 118.72px;
+  width: 100%;
+  margin-top: 40px;
   background-image: linear-gradient(transparent, rgba(19, 19, 19, 0.61), #111);
 
   /* height: 7.4rem; */

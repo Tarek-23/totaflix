@@ -15,7 +15,7 @@ function Header() {
   }, []);
 
   return (
-    <div className={`header ${showBackground && "header--black"} `}>
+    <div className={`header ${showBackground ? "header--black" : ""} `}>
       <h1 className="header__logo">Totaflix</h1>
       {/* <img src="/totaflix.png" alt="totaflix logo" /> */}
       <img

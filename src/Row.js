@@ -17,8 +17,9 @@ function Row({ fetchUrl, title, setMovie }) {
   }, [fetchUrl]);
 
   useEffect(() => {
-    if (title === "Netflix Originals")
+    if (title === "Netflix Originals") {
       setMovie(movies[Math.floor(Math.random() * 19)]);
+    }
   }, [title, setMovie, movies]);
 
   function onClick(e) {
@@ -26,6 +27,8 @@ function Row({ fetchUrl, title, setMovie }) {
     movie.title = e.target.alt;
     movie.backdrop_path = e.target.getAttribute("data-backdrop");
     movie.overview = e.target.getAttribute("data-overview");
+    movie.release_date = e.target.getAttribute("data-release-date");
+    movie.id = e.target.getAttribute("id");
     setMovie(movie);
   }
 
@@ -36,11 +39,16 @@ function Row({ fetchUrl, title, setMovie }) {
         {movies.map((movie) => (
           <img
             key={movie.id}
+            id={movie.id}
             className="row__poster"
             alt={movie.title || movie.name || movie.original_title}
-            src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+            src={
+              movie.poster_path !== undefined &&
+              `https://image.tmdb.org/t/p/original/${movie.poster_path}`
+            }
             data-backdrop={movie.backdrop_path}
             data-overview={movie.overview}
+            data-release-date={movie.release_date || movie.first_air_date}
             onClick={onClick}
           />
         ))}
