@@ -25,13 +25,16 @@ function Banner({ movie }) {
 
   useEffect(() => {
     if (movie !== undefined) {
-      movieTrailer(null, {
-        tmdbId: movie.id,
-        apiKey: process.env.REACT_APP_API_KEY,
-        id: true,
-      }).then((trailer) => {
-        setTrailer(trailer);
-      });
+      if (movie.type === "movie") {
+        movieTrailer(null, {
+          tmdbId: movie.id,
+          apiKey: process.env.REACT_APP_API_KEY,
+          id: true,
+        }).then((trailer) => {
+          setTrailer(trailer);
+        });
+      }
+
       setPlayState(false);
     }
   }, [movie]);
