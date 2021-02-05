@@ -23,6 +23,14 @@ function Banner({ movie }) {
 
   const togglePlayState = () => setPlayState((playState) => !playState);
 
+  const fetchTVTrailer = async (id) => {
+    let result = await fetch(`https://api.themoviedb.org/3/tv/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US
+      `).then((response) => response.json());
+
+    let trailer = await result.results;
+    return trailer;
+  };
+
   useEffect(() => {
     if (movie !== undefined) {
       if (movie.type === "movie") {
@@ -33,6 +41,10 @@ function Banner({ movie }) {
         }).then((trailer) => {
           setTrailer(trailer);
         });
+      } else {
+        fetchTVTrailer(movie.id)
+          .then((results) => results.find((item) => item.type === "Trailer"))
+          .then((result) => setTrailer(result.key));
       }
 
       setPlayState(false);

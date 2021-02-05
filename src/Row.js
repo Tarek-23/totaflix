@@ -10,7 +10,6 @@ function Row({ fetchUrl, title, setMovie }) {
     async function fetchData() {
       const request = await axios.get(fetchUrl);
       setMovies(request.data.results);
-      console.log(request.data.results);
       return request;
     }
     fetchData();
@@ -29,6 +28,7 @@ function Row({ fetchUrl, title, setMovie }) {
     movie.overview = e.target.getAttribute("data-overview");
     movie.release_date = e.target.getAttribute("data-release-date");
     movie.id = e.target.getAttribute("id");
+    movie.type = e.target.getAttribute("data-type");
     setMovie(movie);
   }
 
@@ -48,7 +48,8 @@ function Row({ fetchUrl, title, setMovie }) {
             }
             data-backdrop={movie.backdrop_path}
             data-overview={movie.overview}
-            data-release-date={movie.release_date || movie.first_air_date}
+            data-release-date={movie.release_date}
+            data-type={movie.first_air_date ? "tv" : "movie"}
             onClick={onClick}
           />
         ))}
