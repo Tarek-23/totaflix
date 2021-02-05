@@ -6,7 +6,7 @@ import { SlideDown } from "react-slidedown";
 
 const movieTrailer = require("movie-trailer");
 
-function Banner({ movie }) {
+function Banner({ movie: media }) {
   const [trailer, setTrailer] = useState();
   const [playState, setPlayState] = useState(false);
 
@@ -32,37 +32,38 @@ function Banner({ movie }) {
   };
 
   useEffect(() => {
-    if (movie !== undefined) {
-      if (movie.type === "movie") {
+    if (media !== undefined) {
+      if (media.type === "movie") {
         movieTrailer(null, {
-          tmdbId: movie.id,
+          tmdbId: media.id,
           apiKey: process.env.REACT_APP_API_KEY,
           id: true,
         }).then((trailer) => {
           setTrailer(trailer);
         });
       } else {
-        fetchTVTrailer(movie.id)
+        fetchTVTrailer(media.id)
           .then((results) => results.find((item) => item.type === "Trailer"))
-          .then((result) => setTrailer(result.key));
+          .then((result) => setTrailer(result.key))
+          .catch(() => setTrailer(null));
       }
 
       setPlayState(false);
     }
-  }, [movie]);
+  }, [media]);
   return (
     <header
       className="banner"
       style={{
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${media?.backdrop_path}")`,
         backgroundSize: "cover",
         backgroundPosition: "center center",
       }}
-      key={movie?.title}
+      key={media?.title}
     >
       <div className="banner__contents">
         <h1 className="banner__title">
-          {movie?.title || movie?.name || movie?.original_title}
+          {media?.title || media?.name || media?.original_title}
         </h1>
 
         <button
@@ -75,7 +76,7 @@ function Banner({ movie }) {
         </button>
         <button className="banner__button">My List</button>
 
-        <p className="banner__description">{movie?.overview}</p>
+        <p className="banner__description">{media?.overview}</p>
       </div>
       <SlideDown className="banner__right">
         {playState && (
