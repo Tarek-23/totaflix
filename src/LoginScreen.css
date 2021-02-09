@@ -1,0 +1,120 @@
+.loginScreen {
+  position: relative;
+  background: url("https://assets.nflxext.com/ffe/siteui/vlv3/757ab38f-5d08-40bc-b3eb-eaba63ed8203/93c34f94-56c8-40a7-8b2e-b4aac6427977/GB-en-20210125-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
+  background-position: center no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.loginScreen__overlay {
+  z-index: 1;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0.8) 100%
+  );
+}
+
+.loginScreen__logo {
+  font-family: "Bebas Neue", cursive;
+  font-size: 3rem;
+
+  color: var(--netflix-red);
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+
+  align-self: center;
+  margin-bottom: 1rem;
+  padding: 1rem 1rem;
+}
+
+.loginScreen__signIn {
+  cursor: pointer;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+
+  background-color: var(--netflix-red);
+  padding: 7px 17px;
+
+  color: white;
+  font-size: 1rem;
+  font-weight: 400;
+
+  border: none;
+  border-radius: 5px;
+}
+
+.loginScreen__content {
+  position: relative;
+  top: 10%;
+  width: 100%;
+  padding: 75px 20px;
+  max-width: 950px;
+  text-align: center;
+  z-index: 1;
+  margin: 0 auto;
+}
+
+.loginScreen__text {
+  color: white;
+  line-height: 1.1;
+}
+
+.loginScreen__text > h1 {
+  font-size: 3.125rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.loginScreen__text > h2 {
+  font-size: 1.625rem;
+  margin: 1rem auto;
+}
+
+.loginScreen__text > h3 {
+  font-size: 1.2rem;
+  padding: 0 5%;
+  margin: 1rem auto;
+}
+
+.loginScreen__input {
+  margin: auto;
+  border: none;
+  height: 48px;
+  max-width: 950px;
+  padding-top: 0.85rem;
+}
+
+.loginScreen__input > input {
+  outline-width: 0;
+  font-size: 1rem;
+  min-width: 450px;
+  max-width: 600px;
+  height: 100%;
+  padding: 5px 10px;
+
+  border: 1px solid #8c8c8c;
+  border-radius: 5px 0 0 5px;
+  vertical-align: middle;
+  /* width: 100%; */
+}
+
+.loginScreen__input > button {
+  background-color: var(--netflix-red);
+  cursor: pointer;
+
+  min-height: 60px;
+  font-size: 1.625rem;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  padding: 0 1em;
+  border-radius: 0 10px 10px 0;
+  align-items: center;
+  vertical-align: middle;
+}

@@ -11,9 +11,7 @@ function HomeScreen() {
     <div className="app">
       <Header />
       <Banner movie={selectedMovie} />
-      {/* {req.map(() => (
-        <Row title={requests.key} fetchUrl={requests[requests.key]} />
-      ))} */}
+
       <Row
         title="Netflix Originals"
         fetchUrl={requests.fetchNetflixOriginals}
