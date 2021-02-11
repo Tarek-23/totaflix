@@ -7,8 +7,11 @@ function LoginScreen() {
   return (
     <div className="loginScreen">
       <div className="loginScreen__overlay">
-        <h1 className="loginScreen__logo">Totaflix</h1>
-        <button className="loginScreen__signIn">Sign In</button>
+        <div className="loginScreen__header">
+          <h1 className="loginScreen__logo">Totaflix</h1>
+          <button className="loginScreen__signIn">Sign In</button>
+        </div>
+
         <div className="loginScreen__content">
           <div className="loginScreen__text">
             <h1>Unlimited movies, TV Shows, and more.</h1>
