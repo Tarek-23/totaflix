@@ -9,6 +9,8 @@
   justify-content: space-between;
   z-index: 1;
   transition: all 0.3s ease-out;
+
+  align-content: center;
 }
 
 .header--black {
@@ -31,6 +33,5 @@
   letter-spacing: 0.2rem;
   height: 30%;
 
-  align-self: center;
   margin-bottom: 1rem;
 }
