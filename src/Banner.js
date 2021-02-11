@@ -85,6 +85,7 @@ function Banner({ movie: media }) {
             opts={videoOptions}
             containerClassName="banner__trailer"
             className="banner__iframe"
+            onEnd={togglePlayState}
           />
         )}
       </SlideDown>
